@@ -7,5 +7,21 @@
   <body>
     <input type="range" id="inputslider" min="0" max="255" value="50" step="1"/>
     <br><br><span id="outputText">50</span>
+
+    <script type="text/javascript">
+                    var socket = io.connect();
+
+                    socket.on('led', function (data) {
+                            document.getElementById("inputSlider").value = data.value;
+                            document.getElementById("outputText").innerHTML = data.value;
+                    });
+
+                    function showValue(newValue)
+                    {
+                            document.getElementById("outputText").innerHTML=newValue;
+                            socket.emit('led', { value: newValue });
+                    }
+            </script>
+
   </body>
 </html>
