@@ -1,27 +1,16 @@
 <html>
   <head>
-    <title>Fan Manual Control</title>
+    <title>Main</title>
     <meta name="viewport" />
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
   </head>
-  <body>
-    <input type="range" id="inputslider" min="0" max="255" value="50" step="1"/>
-    <br><br><span id="outputText">50</span>
-
-    <script type="text/javascript">
-                    var socket = io.connect();
-
-                    socket.on('led', function (data) {
-                            document.getElementById("inputSlider").value = data.value;
-                            document.getElementById("outputText").innerHTML = data.value;
-                    });
-
-                    function showValue(newValue)
-                    {
-                            document.getElementById("outputText").innerHTML=newValue;
-                            socket.emit('led', { value: newValue });
-                    }
-            </script>
-
+	<body>
+		<div>
+			<nav class="navbar navbar-inverse" style="padding-left:130px;">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/">Hjem<span class="sr-only">(current)</span></a></li>
+				</ul>
+			</nav>
+		</div>
   </body>
 </html>
